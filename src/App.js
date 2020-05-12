@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import './App.css';
+import { styled } from 'styletron-react';
 import Search from './Search';
 import List from './List';
 
 const App = () => {
+
+  const Div = styled('div', {
+    textAlign: 'center',
+  });
 
   const handleSearch = event => {
     setSearchTerm(event.target.value);
@@ -35,12 +39,12 @@ const App = () => {
     );
 
   return (
-    <div className="App">
+    <Div>
       <h1>My Hacker Stories</h1>
       <Search onSearch={handleSearch} term={searchTerm} />
 
       <List list={searchedStories} />
-    </div>
+    </Div>
   );
 }
 
